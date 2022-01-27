@@ -27,7 +27,7 @@ namespace StockMSFile.Menus
             while (check)
             {
                 Console.Clear();
-                PrintMenu();
+                PrintMenu(manager);
                 int op;
                 if (int.TryParse(Console.ReadLine(), out op))
                 {
@@ -54,7 +54,7 @@ namespace StockMSFile.Menus
                             Console.ReadKey();
                             break;
                         case 5:
-                            managerService.ListAllProduct();
+                            managerService.ListAllProducts();
                             Console.WriteLine("Press any key to continue....");
                             Console.ReadKey();
                             break;
@@ -65,6 +65,21 @@ namespace StockMSFile.Menus
                             break;
                         case 7:
                             managerService.ListAllStaff(manager);
+                            Console.WriteLine("Press any key to continue....");
+                            Console.ReadKey();
+                            break;
+                        case 8:
+                            managerService.ListAllCustomers();
+                            Console.WriteLine("Press any key to continue....");
+                            Console.ReadKey();
+                            break;
+                        case 9:
+                            managerService.FindCustomer();
+                            Console.WriteLine("Press any key to continue....");
+                            Console.ReadKey();
+                            break;
+                        case 10:
+                            //managerService.ViewLogBook(manager);
                             Console.WriteLine("Press any key to continue....");
                             Console.ReadKey();
                             break;
@@ -80,8 +95,12 @@ namespace StockMSFile.Menus
             }
         }
 
-        private void PrintMenu()
+        private void PrintMenu(Manager manager)
         {
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine($"======    Welcome: {manager.FirstName} {manager.LastName} ============");
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine();
             Console.WriteLine("Enter 1 to make sales");
             Console.WriteLine("Enter 2 to add new manager");
             Console.WriteLine("Enter 3 to add product");
@@ -89,6 +108,9 @@ namespace StockMSFile.Menus
             Console.WriteLine("Enter 5 to list all products");
             Console.WriteLine("Enter 6 to find staff by Id");
             Console.WriteLine("Enter 7 to list all staff");
+            Console.WriteLine("Enter 8 to list all customers");
+            Console.WriteLine("Enter 9 to find customer by Id");
+            Console.WriteLine("Enter 10 to view log book.");
             Console.WriteLine("Enter 0 to logout.");
             Console.Write("\nEnter your input: ");
         }

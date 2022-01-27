@@ -55,6 +55,10 @@ namespace StockMSFile.Menus
 
         private void PrintMenu()
         {
+            Console.WriteLine("==================================");
+            Console.WriteLine("====== Welcome to CLH Store ======");
+            Console.WriteLine("==================================");
+            Console.WriteLine();
             Console.WriteLine("1.\tLogin.");
             Console.WriteLine("0.\tExit.");
         }

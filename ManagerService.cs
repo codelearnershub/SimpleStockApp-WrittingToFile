@@ -57,6 +57,11 @@ namespace StockMSFile
             productRepository.FindProductBySKU();
         }
 
+        public void FindCustomer()
+        {
+            customerRepository.FindCustomer();
+        }
+
         private void AddToFile(Sale sale)
         {
             try
@@ -96,9 +101,14 @@ namespace StockMSFile
             }
         }
 
-        public void ListAllProduct()
+        public void ListAllProducts()
         {
             productRepository.GetAll();
+        }
+
+        public void ListAllCustomers()
+        {
+            customerRepository.ListAllCustomers();
         }
 
         private void RefreshFile()
@@ -155,7 +165,7 @@ namespace StockMSFile
 
         public void MakeSale(Manager manager)
         {
-            Console.Write("A new customer press 1\nAn old customer press 2.");
+            Console.Write("A new customer press 1\nAn old customer press 2: ");
             int val;
             if(int.TryParse(Console.ReadLine(), out val))
             {

@@ -63,7 +63,7 @@ namespace StockMSFile.Repositories
             }
         }
 
-        public void AddToFile(Customer customer)
+        private void AddToFile(Customer customer)
         {
             try
             {
@@ -97,6 +97,70 @@ namespace StockMSFile.Repositories
             return customer;
         }
 
+        private void PrintCustomer(Customer customer)
+        {
+            Console.WriteLine($"Name: {customer.FirstName} {customer.LastName}\tID: {customer.CustomerId}\tEmail: {customer.Email}\tTotalPuchase: {customer.TotalPuchase}");
+        }
+
+        public void FindCustomer()
+        {
+            Console.Write("Enter the id of customer to find: ");
+            string id = Console.ReadLine();
+            var customer = GetCustomerById(id);
+            if (customer != null)
+            {
+                PrintCustomer(customer);
+            }
+            else
+            {
+                Console.WriteLine("Invalid customer ID.");
+            }
+        }
+
+        public void ListAllCustomers()
+        {
+            if (customers.Count == 0)
+            {
+                Console.WriteLine("No Customer added yet.");
+            }
+            else
+            {
+                SortCustomers(customers);
+
+                int i = 1;
+                foreach (var customer in customers)
+                {
+                    Console.Write(i + ".\t");
+                    PrintCustomer(customer);
+                    i++;
+                }
+            }
+            
+        }
+
+        private void SortCustomers(List<Customer> all)
+        {
+            Customer temp;
+            bool swapped;
+            for(int i = 0; i < all.Count-1; i++)
+            {
+                swapped = false;
+                for (int j = 0; j < all.Count-i-1; j++)
+                {
+                    if (all[j].TotalPuchase > all[j + 1].TotalPuchase)
+                    {
+                        temp = all[j];
+                        all[j] = all[j + 1];
+                        all[j + 1] = temp;
+                        swapped = true;
+                    }
+                }
+
+                if (swapped == false)
+                    break;
+            }
+        }
+
         public void UpdateCustomer()
         {
             Console.Write("Enter the id of customer to update: ");
@@ -117,6 +181,10 @@ namespace StockMSFile.Repositories
 
                 RefreshFile();
                 Console.WriteLine("Customer updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid customer ID.");
             }
         }
 
