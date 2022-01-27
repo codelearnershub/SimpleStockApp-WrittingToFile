@@ -1,1 +1,1 @@
-Gari	250	300	36	food	c86864d8f3
+Gari	250	300	14	food	c86864d8f3

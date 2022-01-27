@@ -98,7 +98,7 @@ namespace StockMSFile.Menus
         private void PrintMenu(Manager manager)
         {
             Console.WriteLine("=======================================================================");
-            Console.WriteLine($"======    Welcome: {manager.FirstName} {manager.LastName} ============");
+            Console.WriteLine($"                  Welcome: {manager.FirstName} {manager.LastName} ");
             Console.WriteLine("=======================================================================");
             Console.WriteLine();
             Console.WriteLine("Enter 1 to make sales");

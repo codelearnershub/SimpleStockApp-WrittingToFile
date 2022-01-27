@@ -147,7 +147,7 @@ namespace StockMSFile.Repositories
                 swapped = false;
                 for (int j = 0; j < all.Count-i-1; j++)
                 {
-                    if (all[j].TotalPuchase > all[j + 1].TotalPuchase)
+                    if (all[j].TotalPuchase < all[j + 1].TotalPuchase)
                     {
                         temp = all[j];
                         all[j] = all[j + 1];
