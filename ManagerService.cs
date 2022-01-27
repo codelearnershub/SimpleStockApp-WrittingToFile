@@ -226,7 +226,8 @@ namespace StockMSFile
                                 sales.Add(sale);
                                 AddToFile(sale);
                                 Console.WriteLine("Sales successful:");
-                                Console.WriteLine(sale.ToString());
+                                //Console.WriteLine(sale.ToString());
+                                PrintReceipt(sale);
                                 Console.Write("Do you want to buy more goods? y for Yes and n for No: ");
                                 var ans = Console.ReadLine().ToUpper();
                                 if (!ans.Equals("Y"))
@@ -253,6 +254,44 @@ namespace StockMSFile
             {
                 Console.WriteLine("Can not locate or register customer, try again");
             }
+        }
+        
+        private void PrintReceipt(Sale sale)
+        {
+            Console.WriteLine("======================================================");
+            Console.WriteLine($"|Reference:\t\t|\t{sale.Reference}");
+
+            Console.WriteLine($"|Customer Name:\t\t|\t{sale.CustomerName}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|Product Name:\t\t|\t{sale.Name}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|SKU:\t\t\t|\t{sale.SKU}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|Quantity:\t\t|\t{sale.Quantity}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|Unit Price:\t\t|\t{sale.UnitPrice}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|Total Price:\t\t|\t{sale.TotalPrice}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|Sold By:\t\t|\t{sale.SoldBy}");
+
+            Console.WriteLine("|=====================================================");
+
+            Console.WriteLine($"|Time Sold:\t\t|\t{sale.DateSold}");
+
+            Console.WriteLine("======================================================");
         }
     }
 }
