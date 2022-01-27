@@ -93,11 +93,11 @@ namespace StockMSFile.Repositories
             var customer = new Customer(firstName, lastName, phoneNo, address, email);
             customers.Add(customer);
             AddToFile(customer);
-            Console.WriteLine($"Manager created successfully, the manager is: {customer.CustomerId}");
+            Console.WriteLine($"Customer added successfully, the customer Id is: {customer.CustomerId}");
             return customer;
         }
 
-        public void UpdateManager()
+        public void UpdateCustomer()
         {
             Console.Write("Enter the id of customer to update: ");
             string id = Console.ReadLine();
@@ -130,6 +130,12 @@ namespace StockMSFile.Repositories
                 }
             }
             return null;
+        }
+
+        public void UpdateTotalPuchase(Customer customer, decimal value)
+        {
+            customer.TotalPuchase += value;
+            RefreshFile();
         }
     }
 }

@@ -211,6 +211,7 @@ namespace StockMSFile
                             if (op == 1)
                             {
                                 productRepository.UpdateProductQuantity(product, quantity);
+                                customerRepository.UpdateTotalPuchase(customer, quantity * product.SellingPrice);
                                 var sale = new Sale(product.Name, product.SKU, quantity, product.SellingPrice, product.SellingPrice * quantity, customer.FirstName + " " + customer.LastName, manager.FirstName + " " + manager.LastName);
                                 sales.Add(sale);
                                 AddToFile(sale);
